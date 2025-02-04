@@ -1,0 +1,306 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.card-practice {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsl(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  max-width: 280px;
+  display: inline-block;
+}
+
+.card-practice .card-image {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/*Practica Page*/
+.bodies {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bodies .borders {
+  text-shadow: -1px -1px 0 rgb(144, 194, 6), 1px -1px 0 rgb(144, 194, 6),
+    1px 1px 0 rgb(144, 194, 6), -1px 1px 0 rgb(144, 194, 6);
+  position: absolute;
+}
+
+.bodies .wave {
+  color: #09f;
+  animation: wave 3s ease-in-out infinite;
+}
+
+@keyframes wave {
+
+  0%,
+  100% {
+    clip-path: polygon(0% 47%,
+        10% 48%,
+        33% 54%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%);
+  }
+
+  50% {
+    clip-path: polygon(0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 58%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%);
+  }
+}
+
+/*Practica Pre Profesionales*/
+.base {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.base h2 {
+  font-size: 4rem;
+  position: absolute;
+}
+
+.base .animo {
+  color: black;
+  text-shadow: -1px -1px 0 rgb(144, 194, 6), 1px -1px 0 rgb(144, 194, 6),
+    1px 1px 0 rgb(144, 194, 6), -1px 1px 0 rgb(144, 194, 6);
+}
+
+.base .mave {
+  color: #09f;
+  animation: mave 3s ease-in-out infinite;
+}
+
+@keyframes mave {
+
+  0%,
+  100% {
+    clip-path: polygon(0% 47%,
+        10% 48%,
+        33% 54%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%);
+  }
+
+  50% {
+    clip-path: polygon(0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 58%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%);
+  }
+}
+
+.bases {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bases h2 {
+  font-size: 4rem;
+  position: absolute;
+}
+
+.bases .animos {
+  color: black;
+  text-shadow: -1px -1px 0 rgb(144, 194, 6), 1px -1px 0 rgb(144, 194, 6),
+    1px 1px 0 rgb(144, 194, 6), -1px 1px 0 rgb(144, 194, 6);
+}
+
+.bases .maves {
+  color: #09f;
+  animation: maves 3s ease-in-out infinite;
+}
+
+@keyframes maves {
+
+  0%,
+  100% {
+    clip-path: polygon(0% 47%,
+        10% 48%,
+        33% 54%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%);
+  }
+
+  50% {
+    clip-path: polygon(0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 58%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%);
+  }
+}
+
+.rbc-header {
+  color: white;
+  background-color: #00335F;
+}
+
+.rbc-time-header-cell .rbc-today {
+  background-color: #04aa6d !important;
+}
+
+/* .rbc-btn-group {
+	color: white !important;
+	background-color: #00335F;
+} */
+
+.rbc-active {
+  color: white !important;
+  background-color: #00335F !important;
+}
+
+/*Form Page*/
+/*
+.input-box1 {
+  position: relative;
+}
+
+.input-box1 input {
+  padding: 0 15px;
+  border: 2px solid #fff;
+  outline: none;
+}
+
+.input-box1 label {
+  transition: 0.6s;
+  background: transparent;
+}
+*/
+
+/*Para que el texto quede interlineado y no baje al label*/
+/**
+.input-animated input:focus ~ label,
+.input-animated input:valid ~ label {
+  
+  top: 0;
+  left: 20px;
+  font-size: 10px;
+  padding: 0 4px;
+  background: rgb(49, 46, 129);
+  transition: 0.6s;
+}
+
+.input-animated select:focus ~ label,
+.input-animated select:valid ~ label {
+  top: 0;
+  left: 20px;
+  font-size: 10px;
+  padding: 0 4px;
+  background: rgb(49, 46, 129);
+  transition: 0.6s;
+}
+**/
+
+/* =========== ESTILOS PARA EL DASHBOARD =========== */
+
+@layer components {
+  .dsh-primary {
+    @apply bg-white text-gray-600 border-slate-300 dark:bg-slate-950 dark:text-white dark:border-slate-600;
+  }
+
+  /* .dsh-secondary {
+    @apply bg-slate-200 !text-gray-600 dark:bg-slate-900 dark:!text-white; //Se elimino los signos de exclamación porque se corrompía
+  } */
+
+  .dsh-secondary {
+    @apply bg-slate-200 text-gray-600 dark:bg-slate-900 dark:text-white;
+  }
+
+  .dsh-tertiary {
+    @apply bg-slate-100 text-gray-600 border-slate-300 dark:bg-slate-800 dark:text-white dark:border-slate-600;
+  }
+
+  .dsh-btn-icon {
+    @apply text-gray-600 dark:text-white;
+    @apply bg-slate-200 dark:bg-light-white;
+    @apply hover:bg-slate-300 dark:hover:bg-light-white;
+  }
+
+  .dsh-item-nav {
+    /* Clases Base */
+    @apply text-colorcito dark:text-white hover:text-blue-700 dark:hover:text-blue-700;
+
+    /* Pseudo-clases de Estado */
+    @apply hover:bg-slate-200 dark:hover:bg-light-white;
+
+    /* Pseudo-clases de Modificadores */
+    @apply current:bg-colorcito dark:current:text-white current:text-white current:hover:bg-colorcito current:dark:bg-blue-600 current:dark:hover:bg-blue-800;
+  }
+
+}
+
+@layer utilities {
+  .dashboard-scroll::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  .dashboard-scroll::-webkit-scrollbar-track {
+    @apply bg-slate-200 dark:bg-slate-900;
+  }
+
+  .dashboard-scroll::-webkit-scrollbar-thumb {
+    @apply bg-slate-400 dark:bg-slate-500 rounded-full hover:bg-yellow-400;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-400 dark:bg-slate-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-yellow-300 rounded-full hover:bg-yellow-500;
+  }
+}
+
+/* =========== ESTILOS PARA EL DASHBOARD =========== */

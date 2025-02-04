@@ -1,0 +1,33 @@
+/* Contenedor principal */
+.ChatBot {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Texto del encabezado del chatbot */
+.rsc-header-title {
+    color: #fff !important;
+    font-size: 15px !important;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.rsc-ts-image {
+    background-color: #ffffff !important;
+    border: #eab308 solid 1px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.rsc-os-option-element {
+    background-color: #5784d7 !important;
+    /* background-color: #eab308 !important; */
+    color: #fff !important;
+}

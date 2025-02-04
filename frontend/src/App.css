@@ -1,0 +1,405 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Spinnaker&display=swap");
+
+.bg-blue-color {
+  @apply bg-[var(#032154b9)];
+}
+
+.barlow-medium {
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Target the scrollbar */
+::-webkit-scrollbar {
+  width: 15px;
+  /* Width of the scrollbar */
+}
+
+.bg-primary {
+  background-color: #00335f;
+}
+
+.text-primary {
+  color: #00335f;
+}
+
+/* Track - the area behind the scrollbar */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  /* Color of the track */
+}
+
+/* Handle - the draggable part of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background: cornflowerblue;
+  /* Color of the handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* Color of the handle on hover */
+}
+
+html {
+  background: black;
+  width: 100% !important;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.page-link {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  margin: 0 0.5rem;
+  /* Ajusta este valor según sea necesario */
+}
+
+.page-link.previous {
+  margin-right: 1rem;
+  /* Ajusta este valor según sea necesario */
+}
+
+.page-link.next {
+  margin-left: 1rem;
+  /* Ajusta este valor según sea necesario */
+}
+
+.page-link.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.page-link.disabled {
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.page-link:hover {
+  background-color: #f8f9fa;
+}
+
+.colorcito {
+  background-color: #00335f;
+}
+
+.colorcito2 {
+  background-color: #02294b;
+}
+
+.colorcito-hover {
+  background-color: #335b87;
+}
+
+.color-secundario {
+  background-color: #eab308;
+}
+
+.color-secundario-hover:hover {
+  background-color: #eab308;
+}
+
+.border-card-yellow {
+  border: #eab308 solid 2px;
+}
+
+.carousel-item .image-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  /* Centra contenido horizontalmente */
+  align-items: center;
+  /* Centra contenido verticalmente */
+  width: 100%;
+  /* Ajusta el ancho del contenedor al ancho del carrusel */
+  height: 500px;
+  /* Altura fija para todas las imágenes */
+}
+
+.carousel-item .image-container .carousel-image {
+  width: 100%;
+  height: auto;
+  /* Asegura que la imagen conserve su aspecto */
+  transition: transform 0.5s ease;
+  /* Transición suave para el efecto de zoom */
+}
+
+.carousel-item .image-container:hover .carousel-image {
+  transform: scale(1.05);
+  /* Efecto de zoom al pasar el ratón */
+}
+
+.carousel-item .image-container .image-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo semitransparente oscuro para mejorar la legibilidad */
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  /* Aumenta el tamaño del texto para mejor visibilidad */
+  font-weight: bold;
+  /* Hace el texto más grueso */
+  opacity: 0;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+  /* Transición suave del fondo y la opacidad */
+  padding: 10px;
+  /* Añade un poco de padding para espacio interior */
+  box-sizing: border-box;
+  transform: scale(1.1);
+  /* Escala un poco el título para un efecto interesante */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  /* Efecto de transformación y opacidad */
+}
+
+.carousel-item .image-container:hover .image-title {
+  opacity: 1;
+  /* Muestra el título al pasar el ratón */
+  background-color: #00335f85;
+  /* Oscurece el fondo para mejorar contraste al hacer hover */
+  transform: scale(1);
+  /* Vuelve al tamaño normal cuando se hace hover */
+}
+
+/*Efecto libro para la seccion revistas*/
+.book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  cursor: pointer;
+  padding: 10px;
+  /* Añade algo de relleno para evitar que los elementos se peguen a los bordes */
+  box-sizing: border-box;
+  /* Asegúrate de que el padding se incluya en el tamaño total del contenedor */
+}
+
+.flip-book {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .book-container {
+    flex-direction: column;
+    /* Alinea los elementos verticalmente en pantallas más pequeñas */
+    height: auto;
+    /* Ajusta la altura para evitar el desbordamiento en pantallas más pequeñas */
+    padding: 20px;
+    /* Ajusta el padding para un mejor espaciado en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .book-container {
+    padding: 15px;
+    /* Ajusta el padding para pantallas muy pequeñas */
+  }
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.page img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+
+.page button {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  background-color: #00335f;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.page button:hover {
+  background-color: white;
+  border: 2px solid #00335f;
+  color: #00335f;
+}
+
+/* Estrellas de calificación*/
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  text-shadow:
+    /* Crea sombras múltiples alrededor del texto para simular un borde */ -1px -1px
+      0 #000,
+    1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.rating span {
+  color: #ccc;
+  font-size: 50px;
+}
+
+.rating .filled-star {
+  color: gold;
+}
+
+.rating-tooltip {
+  position: absolute;
+  top: -35px;
+  /* Ajusta según sea necesario */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  color: #fff;
+  background-color: #333;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* Añadito estilos anteriores */
+
+.bg-blue-color {
+  @apply bg-[var(#032154b9)];
+}
+
+/* Target the scrollbar */
+::-webkit-scrollbar {
+  width: 15px;
+  /* Width of the scrollbar */
+}
+
+/* Track - the area behind the scrollbar */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  /* Color of the track */
+}
+
+/* Handle - the draggable part of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background: cornflowerblue;
+  /* Color of the handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* Color of the handle on hover */
+}
+
+html {
+  background: black;
+  width: 100% !important;
+  overflow-x: hidden;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.page-link {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  margin: 0 0.5rem;
+  /* Ajusta este valor según sea necesario */
+}
+
+.page-link.previous {
+  margin-right: 1rem;
+  /* Ajusta este valor según sea necesario */
+}
+
+.page-link.next {
+  margin-left: 1rem;
+  /* Ajusta este valor según sea necesario */
+}
+
+.page-link.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.page-link.disabled {
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.page-link:hover {
+  background-color: #f8f9fa;
+}
+
+.colorcito {
+  background-color: #00335f;
+}
+.colores {
+  background-color: #004564;
+}
+.colorcit {
+  background-color: #290caa;
+}
+
+.page-count {
+  margin: 0 1rem;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.triangle {
+  clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+}
