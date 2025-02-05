@@ -1,25 +1,51 @@
-'use strict';
-const { Model } = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
-	class Asistente extends Model {
-		/**
-		 * Helper method for defining associations.
-		 * This method is not a part of Sequelize lifecycle.
-		 * The `models/index` file will call this method automatically.
-		 */
-		static associate(models) {
-			Asistente.belongsTo(models.Usuario, { foreignKey: 'id_usuario' });
-		}
-	}
+	class Asistente extends Model { }
+
 	Asistente.init(
 		{
-			tipo_asistente: DataTypes.STRING,
-			id_usuario: DataTypes.INTEGER,
+			id: {
+				type: DataTypes.INTEGER,
+				primaryKey: true,
+				autoIncrement: true,
+			},
+			tipo_asistente: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			id_usuario: {
+				type: DataTypes.INTEGER,
+				allowNull: false,
+			},
+			nombres: {
+				type: DataTypes.STRING(100),
+				allowNull: false,
+			},
+			cedula: {
+				type: DataTypes.STRING(20),
+				allowNull: false,
+			},
+			edad: {
+				type: DataTypes.INTEGER,
+				allowNull: false,
+			},
+			telefono: {
+				type: DataTypes.STRING(15),
+				allowNull: false,
+			},
+			lugar: {
+				type: DataTypes.STRING(100),
+				allowNull: false,
+			},
 		},
 		{
 			sequelize,
-			modelName: 'Asistente',
-		},
+			modelName: "Asistente",
+			timestamps: true,
+		}
 	);
+
 	return Asistente;
 };

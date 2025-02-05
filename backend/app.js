@@ -27,6 +27,7 @@ const reportesRoute = require("./routes/reportes/reportesRoute");
 const expedienteRoutes = require("./routes/expediente/expedienteRoutes");
 const estadoReporteRoutes = require("./routes/reportes/estadoReporteRoute");
 const ponenteRoutes = require("./routes/ponentes/ponenteRoutes");
+const asistentesRoutes = require("./routes/asistentes/asistentesRoutes");
 
 const cors = require("cors");
 const path = require("path");
@@ -127,6 +128,9 @@ app.use("/api/estados-reportes", estadoReporteRoutes);
 
 // Agregar la ruta de ponentes
 app.use("/api/ponentes", ponenteRoutes)
+
+// Agregar la ruta de asistentes
+app.use("/api/asistentes", asistentesRoutes)
 
 // Middleware para permitir solicitudes CORS
 app.use((req, res, next) => {

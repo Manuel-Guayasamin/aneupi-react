@@ -25,7 +25,7 @@ const ciudadRoutes = require("../routes/ciudad/ciudadRoutes");
 const inscripcionEventoRoutes = require("../routes/eventos/inscripcionEventoRoutes");
 const reportesRoute = require("../routes/reportes/reportesRoute");
 const ponenteRoutes = require("./routes/ponentes/ponenteRoutes");
-
+const asistentesRoutes = require("./routes/asistentes/asistentesRoutes");
 
 
 const cors = require("cors");
@@ -127,6 +127,9 @@ app.use("/api/reportes", reportesRoute);
 app.use("/api/tipo-bibliotecas", tipoBibliotecaRoutes);
 // Agregar la ruta de ponentes
 app.use("/api/ponentes", ponenteRoutes)
+// Agregar la ruta de asistentes
+app.use("/api/asistentes", asistentesRoutes)
+
 // Middleware para permitir solicitudes CORS
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
