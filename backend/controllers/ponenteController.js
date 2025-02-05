@@ -77,8 +77,8 @@ const ponenteController = {
 
   // Actualizar un ponente por ID
   updatePonente: async (req, res) => {
+    const { id } = req.params;
     try {
-      const { id } = req.params;
       const ponente = await Ponente.findByPk(id);
       if (!ponente) {
         return res.status(404).json({ message: "Ponente no encontrado" });
