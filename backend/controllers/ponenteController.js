@@ -1,7 +1,12 @@
 const { Ponente } = require("../models");
 const nodemailer = require("nodemailer");
+const fs = require("fs");
+const path = require("path");
+const handlebars = require("handlebars");
 const EMAIL = process.env.NODEMAILER_EMAIL;
 const PASSWORD = process.env.NODEMAILER_PASSWORD;
+const { promisify } = require("util");
+const readFile = promisify(fs.readFile);
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -21,7 +26,6 @@ transporter.verify((error) => {
 });
 
 const ponenteController = {
-  // Crear un nuevo ponente
   createPonente: async (req, res) => {
     try {
       const { tematica, curriculum_url, comprobante_url, profesion, nombres, cedula, edad, telefono, id_evento, email } = req.body;
@@ -43,15 +47,23 @@ const ponenteController = {
         email,
       });
 
+      // Cargar la plantilla HTML
+      const htmlPath = path.resolve(__dirname, "../emails/Ponentes/nuevo-ponente.html");
+      const html = await readFile(htmlPath, "utf8");
+      const template = handlebars.compile(html);
+      const data = {
+        nombreApellido: nombres,
+        eventoId: id_evento,
+      };
+      const htmlReady = template(data);
+
       // Enviar correo electrónico
-      const mailOptions = {
+      transporter.sendMail({
         from: EMAIL,
         to: email,
-        subject: "Nuevo Ponente Creado",
-        text: `Hola ${nombres},\n\nSe ha registrado un nuevo ponente en el evento ${id_evento}.\n\nSaludos.`,
-      };
-
-      transporter.sendMail(mailOptions, (err, info) => {
+        subject: "Registro de Ponente Exitoso",
+        html: htmlReady,
+      }, (err, info) => {
         if (err) {
           console.error("Error al enviar el correo:", err);
         } else {
@@ -64,7 +76,6 @@ const ponenteController = {
       res.status(500).json({ message: "Error al crear el ponente", error: error.message });
     }
   },
-
   // Obtener todos los ponentes
   getAllPonentes: async (req, res) => {
     try {
@@ -100,8 +111,31 @@ const ponenteController = {
         return res.status(404).json({ message: "Ponente no encontrado" });
       }
 
+      // Cargar la plantilla de email para notificación de eliminación
+      const htmlPath = path.resolve(__dirname, "../emails/Ponentes/ponente-eliminado.html");
+      const html = await readFile(htmlPath, "utf8");
+      const template = handlebars.compile(html);
+      const data = {
+        nombreApellido: ponente.nombres,
+      };
+      const htmlReady = template(data);
+
+      // Enviar correo de notificación
+      transporter.sendMail({
+        from: EMAIL,
+        to: ponente.email,
+        subject: "Notificación de eliminación de ponente",
+        html: htmlReady,
+      }, (err, info) => {
+        if (err) {
+          console.error("Error al enviar el correo de eliminación:", err);
+        } else {
+          console.log("Correo de eliminación enviado:", info.response);
+        }
+      });
+
       await ponente.destroy();
-      res.json({ message: "Ponente eliminado" });
+      res.json({ message: "Ponente eliminado y notificado" });
     } catch (error) {
       res.status(500).json({ message: "Error al eliminar el ponente", error: error.message });
     }
