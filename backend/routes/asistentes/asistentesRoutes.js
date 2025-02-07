@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const ciudadController = require("../../controllers/asistenteController");
+const asistenteController = require("../../controllers/asistenteController");
 
-router.get("/", ciudadController.getAllAsistentes);
-router.post("/", ciudadController.createAsistente);
+router.get("/", asistenteController.getAllAsistentes);
+router.post("/", asistenteController.createAsistente);
+router.put("/:id", asistenteController.updateAsistente);
+router.delete("/:id", asistenteController.deleteAsistente);
 
 module.exports = router;
