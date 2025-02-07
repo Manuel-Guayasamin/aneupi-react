@@ -35,6 +35,41 @@ const asistenteController = {
       res.status(500).json({ message: "Error al obtener los asistentes", error: error.message });
     }
   },
+
+  // Editar un asistente
+  updateAsistente: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { tipo_asistente, id_usuario, nombres, cedula, edad, telefono, lugar } = req.body;
+
+      const asistente = await Asistente.findByPk(id);
+      if (!asistente) {
+        return res.status(404).json({ message: "Asistente no encontrado" });
+      }
+
+      await asistente.update({ tipo_asistente, id_usuario, nombres, cedula, edad, telefono, lugar });
+      res.json({ message: "Asistente actualizado correctamente", asistente });
+    } catch (error) {
+      res.status(500).json({ message: "Error al actualizar el asistente", error: error.message });
+    }
+  },
+
+  // Eliminar un asistente
+  deleteAsistente: async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      const asistente = await Asistente.findByPk(id);
+      if (!asistente) {
+        return res.status(404).json({ message: "Asistente no encontrado" });
+      }
+
+      await asistente.destroy();
+      res.json({ message: "Asistente eliminado correctamente" });
+    } catch (error) {
+      res.status(500).json({ message: "Error al eliminar el asistente", error: error.message });
+    }
+  },
 };
 
 module.exports = asistenteController;
