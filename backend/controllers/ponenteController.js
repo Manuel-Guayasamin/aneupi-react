@@ -52,7 +52,7 @@ const ponenteController = {
       const html = await readFile(htmlPath, "utf8");
       const template = handlebars.compile(html);
       const data = {
-        nombreApellido: nombres,
+        nombres: nombres,
         eventoId: id_evento,
       };
       const htmlReady = template(data);
@@ -116,7 +116,8 @@ const ponenteController = {
       const html = await readFile(htmlPath, "utf8");
       const template = handlebars.compile(html);
       const data = {
-        nombreApellido: ponente.nombres,
+        nombres: ponente.nombres,
+        eventoId: ponente.id_evento
       };
       const htmlReady = template(data);
 
